@@ -1,0 +1,41 @@
+{% extends 'accounts/base.html' %}
+{% load staticfiles accounts_extras %}
+
+{% block content %}
+<div class="container">
+      <form class="form-signin" method="post">
+          <h2 class="form-signin-heading">Adding new user</h2>
+          {% csrf_token %}
+          {% for field in form.hidden_fields %}
+              {{ field }}
+          {% endfor %}
+
+          {% for field in form.visible_fields %}
+              {% if field.errors|length > 0 %}
+                  {% for error in field.errors %}
+                      <div class="error">{{ error }}</div>
+                  {% endfor %}
+              {% endif %}
+              {{ field.label }}:
+              {% if field.label == "Date of birth" %}
+                  <div class="input-group date">
+                      {{ field|addcss:"form-control" }}
+                  </div>
+              {% else %}
+                  {{ field|addcss:"form-control" }}
+              {% endif %}
+          {% endfor %}
+          <br>
+          <input class="btn btn-primary btn-block" type="submit" name="add" value="Add">
+      </form>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker(
+          {pickTime: false}
+        );
+    });
+</script>
+
+</div>
+{% endblock content %}

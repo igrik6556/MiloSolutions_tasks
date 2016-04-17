@@ -1,0 +1,41 @@
+{% extends 'accounts/base.html' %}
+{% load staticfiles accounts_extras %}
+
+{% block navbar_links %}
+    <li><a href="{% url "accounts:add_user" %}">Add user</a></li>
+{% endblock navbar_links %}
+
+{% block content %}
+<div class="container">
+    <h2 class="sub-header">List users</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Date of birth</th>
+                  <th>Access</th>
+                  <th>Random number</th>
+                  <th>BizzFuzz</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for user in users %}
+                <tr>
+                  <td><a href="{% url "accounts:view_user" user.id %}">{{ user.username }}</a></td>
+                  <td>{{ user.birthday }}</td>
+                  <td>{% access user.birthday %}</td>
+                  <td>{{ user.random_number }}</td>
+                  <td>{% bizzfuzz user.random_number %}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <a href="{% url "accounts:save_csv" %}">
+    <button type="button" class="btn btn-lg btn-primary">Save CSV
+    </button>
+    </a>
+</div>
+{% endblock content %}

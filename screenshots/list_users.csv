@@ -1,0 +1,8 @@
+Username,Date of birth,Access,Random number,BizzFuzz
+test,1972-02-02,Allowed,17,Nothing
+test2,2012-12-12,Blocked,87,Bizz
+admin,,Unknown,47,Nothing
+user,1991-04-17,Allowed,31,Nothing
+user4,2000-01-09,Allowed,92,Nothing
+anonymous,1987-03-14,Allowed,97,Nothing
+username,1984-08-01,Allowed,79,Nothing

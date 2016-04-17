@@ -1,0 +1,19 @@
+{% extends 'accounts/base.html' %}
+{% load staticfiles accounts_extras %}
+
+{% block navbar_links %}
+    <li><a href="{% url "accounts:edit_user" user.id %}" %}">Edit user</a></li>
+    <li><a href="{% url "accounts:delete_user" user.id %}">Delete user</a></li>
+{% endblock navbar_links %}
+
+{% block content %}
+<div class="container">
+      <div class="form-signin">
+            <h2 class="form-signin-heading">{{ user.username }}</h2>
+            <strong>Date of birth:</strong> {{ user.birthday }}<br>
+            <strong>Access:</strong>        {% access user.birthday %}<br>
+            <strong>Random number:</strong> {{ user.random_number }}<br>
+            <strong>BizzFuzz:</strong>      {% bizzfuzz user.random_number %}<br>
+      </div>
+</div>
+{% endblock content %}
