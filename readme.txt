@@ -1,3 +1,7 @@
+0) TASK
+Python task (Google drive): goo.gl/GzM5wS
+Django task (Google drive): goo.gl/F5aqqa
+
 1) Installation
 
 You need to have Python 3 (3.4 or later) installed on your PC, 
